@@ -13,7 +13,7 @@ const pool = new Pool({
     host: "localhost",
     database: "Users_DB",
     password: "script",
-    port: 5433,
+    port: 5432,
 });
 
 // 🔹 File upload config
@@ -51,3 +51,5 @@ app.post("/api/profile", upload.single("profilePicInput"), async (req, res) => {
 app.listen(3000, () => {
     console.log("Server running on http://localhost:3000");
 });
+
+app.use(express.static("."));

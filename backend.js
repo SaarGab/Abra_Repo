@@ -93,7 +93,7 @@ form.addEventListener("submit", async function (e) {
         // Collect form data (includes file)
         const formData = new FormData(form);
 
-        const response = await fetch("/api/profile", {
+        const response = await fetch("http://localhost:3000/api/profile", {
             method: "POST",
             body: formData
         });
