@@ -4,28 +4,28 @@
 <form id="profileForm" novalidate>
     <label>Upload Profile Picture: </label>
     <br>
-    <input type="file" id="profilePicInput" accept="image/*">
+    <input type="file" id="profilePicInput" name="profilePicInput" accept="image/*">
     <br>
     <img id="profilePreview" src="" alt="Profile Preview">
     <br>
 
     <label>Full Name: </label>
-    <input type="text" id="name" required>
+    <input type="text" id="name" required name="name">
     <small class="error" id="nameError"></small>
     <br>
 
     <label>Email: </label>
-    <input type="email" id="email" required>
+    <input type="email" id="email" required name="email">
     <small class="error" id="emailError"></small>
     <br>
 
     <label>Phone Number: </label>
-    <input type="tel" id="phone" pattern="[0-9+]{7,}" required>
+    <input type="tel" id="phone" name="phone" pattern="[0-9+]{7,}" required>
     <small class="error" id="phoneError"></small>
     <br>
 
     <label>Bio: </label>
-    <textarea id="bio"></textarea>
+    <textarea id="bio" name="bio"></textarea>
     <br>
 
     <button type="submit" id="submitBtn">Save</button>
