@@ -1,40 +1,24 @@
-<form>
-    <label> Upload Profile Picture </label>
-    <br>
-    <input type="file">
-    <br>
-    <img style="border-radius: 50%;">
-    </img>
-    <br>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<form id="profileForm">
+    <label>Upload Profile Picture</label>
+    <input type="file" id="profilePicInput" accept="image/*">
+
+    <img id="profilePreview" src="" alt="Profile Preview">
+
     <label>Full Name</label>
     <input type="text">
-    <br>
+
     <label>Email</label>
     <input type="email">
-    <br>
+
     <label>Phone Number</label>
     <input type="tel">
-    <br>
-    <label> Bio </label>
-    <textarea name="bio" id=""></textarea>
-    <br>
-    <button type="submit">Submit</button>
-    <style>
-        .container {
-            display: flex;
-            /* Activates Flexbox */
-            justify-content: center;
-            /* Centers items horizontally */
-            align-items: center;
-            /* Centers items vertically */
-            height: 100vh;
-        }
 
-        .item {
-            flex: 1;
-            /* Items take up equal space */
-            padding: 20px;
-            border: 1px solid black;
-        }
-    </style>
+    <label>Bio</label>
+    <textarea></textarea>
+
+    <button type="submit">Submit</button>
 </form>
+<script defer src="backend.js"></script>
