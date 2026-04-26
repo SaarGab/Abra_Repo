@@ -17,13 +17,48 @@ fileInput.addEventListener("change", function () {
 
 const form = document.getElementById("profileForm");
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault(); // 🚫 stops page reload
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
 
-    // You can now handle the data manually
-    console.log("Form submitted without reload!");
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    // Example: collect data
-    const formData = new FormData(form);
-    console.log(Object.fromEntries(formData.entries()));
+    let isValid = true;
+
+    // Clear previous errors
+    clearErrors();
+
+    // 🔹 Name validation
+    if (nameInput.value.trim() === "") {
+        showError(nameInput, "nameError", "Name is required");
+        isValid = false;
+    }
+
+    // 🔹 Email validation
+    if (!emailInput.checkValidity()) {
+        showError(emailInput, "emailError", "Enter a valid email");
+        isValid = false;
+    }
+
+    // 🔹 Phone validation
+    if (!phoneInput.checkValidity()) {
+        showError(phoneInput, "phoneError", "Enter a valid phone number");
+        isValid = false;
+    }
+
+    if (isValid) {
+        console.log("Form is valid ✅");
+        // proceed with saving / sending data
+    }
 });
+
+function showError(input, errorId, message) {
+    input.classList.add("invalid");
+    document.getElementById(errorId).textContent = message;
+}
+
+function clearErrors() {
+    document.querySelectorAll(".error").forEach(e => e.textContent = "");
+    document.querySelectorAll("input").forEach(i => i.classList.remove("invalid"));
+}

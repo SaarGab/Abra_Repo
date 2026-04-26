@@ -31,3 +31,13 @@
     grid-column: span 2;
     padding: 10px;
 }
+
+.error {
+    color: red;
+    font-size: 0.85em;
+    height: 14px;
+}
+
+input.invalid {
+    border: 1px solid red;
+}
