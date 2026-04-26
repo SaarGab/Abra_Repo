@@ -1,7 +1,7 @@
 // ===============================
 // ELEMENT REFERENCES
 // ===============================
-const form = document.getElementById("profileForm");
+const form = document.getElementById("profile-form");
 
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
