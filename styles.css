@@ -1,11 +1,9 @@
 .profile-form {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    /* label | input */
-    gap: 10px 15px;
-    max-width: 500px;
-    margin: auto;
-    align-items: center;
+    width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .profile-form label {
