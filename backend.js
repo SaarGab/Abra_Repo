@@ -14,3 +14,16 @@ fileInput.addEventListener("change", function () {
         reader.readAsDataURL(file);
     }
 });
+
+const form = document.getElementById("profileForm");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault(); // 🚫 stops page reload
+
+    // You can now handle the data manually
+    console.log("Form submitted without reload!");
+
+    // Example: collect data
+    const formData = new FormData(form);
+    console.log(Object.fromEntries(formData.entries()));
+});
