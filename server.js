@@ -11,7 +11,7 @@ app.use(cors());
 const pool = new Pool({
     user: "java",
     host: "localhost",
-    database: "CarPoolDB",
+    database: "Users_DB",
     password: "script",
     port: 5433,
 });
