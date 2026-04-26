@@ -1,59 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>User Profile</title>
-
     <link rel="stylesheet" href="styles.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<form id="profileForm" novalidate>
+    <label>Upload Profile Picture: </label>
+    <br>
+    <input type="file" id="profilePicInput" accept="image/*">
+    <br>
+    <img id="profilePreview" src="" alt="Profile Preview">
+    <br>
 
-<body>
+    <label>Full Name: </label>
+    <input type="text" id="name" required>
+    <small class="error" id="nameError"></small>
+    <br>
 
-    <form id="profileForm" class="profile-form" novalidate>
+    <label>Email: </label>
+    <input type="email" id="email" required>
+    <small class="error" id="emailError"></small>
+    <br>
 
-        <label>Upload Profile Picture</label>
-        <br>
-        <input type="file" id="profilePicInput" accept="image/*">
-        <br>
-        <img id="profilePreview" src="" alt="Profile Preview">
-        <br>
+    <label>Phone Number: </label>
+    <input type="tel" id="phone" pattern="[0-9+]{7,}" required>
+    <small class="error" id="phoneError"></small>
+    <br>
 
-        <label for="name">Full Name</label>
-        <br>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" required>
-        <small id="nameError" class="error"></small>
-        <br>
+    <label>Bio: </label>
+    <textarea id="bio"></textarea>
+    <br>
 
-        <label for="email">Email</label>
-        <br>
-        <input type="email" id="email" required>
-        <small id="emailError" class="error"></small>
-        <br>
-
-        <label for="phone">Phone Number</label>
-        <br>
-        <input type="tel" id="phone" pattern="[0-9+\-\s()]{7,}" required>
-        <small id="phoneError" class="error"></small>
-        <br>
-
-        <label for="bio">Bio</label>
-        <br>
-        <textarea id="bio" rows="3"></textarea>
-        <br>
-        <button type="submit" id="submitBtn">Save</button>
-        <br>
-
-        <p id="statusMessage"></p>
-
-    </form>
-
-    <!-- JavaScript -->
-    <script defer src="script.js"></script>
-
-</body>
-
-</html>
+    <button type="submit" id="submitBtn">Save</button>
+    <p id="statusMessage"></p>
+</form>
+<script defer src="backend.js"></script>
