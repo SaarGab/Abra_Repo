@@ -16,49 +16,44 @@ fileInput.addEventListener("change", function () {
 });
 
 const form = document.getElementById("profileForm");
+const submitBtn = document.getElementById("submitBtn");
+const statusMessage = document.getElementById("statusMessage");
 
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const phoneInput = document.getElementById("phone");
-
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    let isValid = true;
+    // 🔹 UI: loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Saving...";
+    statusMessage.textContent = "";
 
-    // Clear previous errors
-    clearErrors();
+    try {
+        // Collect form data
+        const formData = new FormData(form);
 
-    // 🔹 Name validation
-    if (nameInput.value.trim() === "") {
-        showError(nameInput, "nameError", "Name is required");
-        isValid = false;
-    }
+        // Example: send to backend
+        const response = await fetch("/api/profile", {
+            method: "POST",
+            body: formData
+        });
 
-    // 🔹 Email validation
-    if (!emailInput.checkValidity()) {
-        showError(emailInput, "emailError", "Enter a valid email");
-        isValid = false;
-    }
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
 
-    // 🔹 Phone validation
-    if (!phoneInput.checkValidity()) {
-        showError(phoneInput, "phoneError", "Enter a valid phone number");
-        isValid = false;
-    }
+        // 🔹 Success
+        statusMessage.textContent = "✅ Profile updated successfully!";
+        statusMessage.style.color = "green";
 
-    if (isValid) {
-        console.log("Form is valid ✅");
-        // proceed with saving / sending data
+    } catch (error) {
+        // 🔹 Error
+        statusMessage.textContent = "❌ Failed to update profile.";
+        statusMessage.style.color = "red";
+    } finally {
+        // 🔹 Reset buttonss
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Save";
     }
 });
 
-function showError(input, errorId, message) {
-    input.classList.add("invalid");
-    document.getElementById(errorId).textContent = message;
-}
-
-function clearErrors() {
-    document.querySelectorAll(".error").forEach(e => e.textContent = "");
-    document.querySelectorAll("input").forEach(i => i.classList.remove("invalid"));
-}
+submitBtn.classList.add("loading");
