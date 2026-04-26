@@ -2,22 +2,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <form id="profileForm" novalidate>
-    <img> <input type="file">
+    <label>Upload Profile Picture</label>
+    <input type="file" id="profilePicInput" accept="image/*">
+
+    <img id="profilePreview" src="" alt="Profile Preview">
     <br>
+
     <label>Full Name</label>
     <input type="text" id="name" required>
     <small class="error" id="nameError"></small>
+    <br>
 
     <label>Email</label>
     <input type="email" id="email" required>
     <small class="error" id="emailError"></small>
+    <br>
 
     <label>Phone Number</label>
     <input type="tel" id="phone" pattern="[0-9+\-\s()]{7,}" required>
     <small class="error" id="phoneError"></small>
+    <br>
 
     <label>Bio</label>
     <textarea id="bio"></textarea>
+    <br>
 
     <button type="submit">Submit</button>
 </form>
